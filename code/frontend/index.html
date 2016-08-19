@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css">
+  <link rel="stylesheet" href="style.css">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-resource.js"></script>
+	<script src="scripts/app.js"></script>
+  <script src="scripts/NotecardsController.js"></script>
+  <script src="cardDirective/cardDirective.js"></script>
+
+
+	<title>Notecard</title>
+</head>
+<body ng-app="NotecardApp">
+
+  <div class="container" ng-controller="NotecardsController as NotecardsController">
+    <header class="navbar">
+      <h1 class="pull-left">Notecard</h1>
+
+      <scores></scores>
+    </header>
+
+    <section id="cards" class="container-fluid">
+      <div class="row">
+
+        <div class="col-sm-6 col-md-6 col-lg-4" ng-repeat="card in NotecardsController.notecards" >
+          <wdi-card></wdi-card>
+        </div>
+
+      </div>
+    </section>
+
+
+
+    <form ng-submit="submit()">
+      <div>
+        <label for="newNotecard-question">Question:</label>
+        <input type="text" id="newNotecard-question" ng-model="NotecardsController.newNotecard.question">
+      </div>
+      <div>
+        <label for="newNotecard-answer">Answer:</label>
+        <input type="text" id="newNotecard-answer" ng-model="NotecardsController.newNotecard.answer">
+      </div>
+      <div>
+        <input type="submit" value="Add Notecard">
+      </div>
+    </form>
+
+
+  </div>
+
+
+</body>
+</html>
